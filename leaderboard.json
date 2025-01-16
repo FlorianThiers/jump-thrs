@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Charlie",
+    "time": 600,
+    "fails": 30,
+    "gamemode": "hard"
+  },
+  {
+    "name": "FLOR1",
+    "time": 194.14,
+    "fails": 6,
+    "gamemode": "easy"
+  },
+  {
+    "name": "FLOR2",
+    "time": 231.76,
+    "fails": 8,
+    "gamemode": "easy"
+  },
+  {
+    "name": "Florian Thiers",
+    "time": 167.41,
+    "fails": 1,
+    "gamemode": "normal"
+  },
+  {
+    "name": "test1",
+    "time": 190.35,
+    "fails": 6,
+    "gamemode": "easy"
+  }
+]

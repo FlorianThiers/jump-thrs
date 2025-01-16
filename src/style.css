@@ -1,0 +1,239 @@
+html,
+body,
+#root
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0);}
+
+/**
+ * Finish Form
+ */
+ .finish-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    color: white;
+    border-radius: 10px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.finish-form h2 {
+    margin: 0;
+}
+
+.finish-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.finish-form input {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.finish-form button {
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.finish-form button:hover {
+    background-color: #cc0000;
+}
+
+/**
+ * Interface
+ */
+ .interface
+ {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     pointer-events: none;
+     font-family: 'Bebas Neue', cursive;
+ }
+
+
+/**
+Fail
+**/
+.fail-count{
+    position: absolute;
+    top: 2%;
+    right: 0;
+    width: 100%;
+    color: #ffffff;
+    font-size: 4vh;
+    text-align: right;
+    margin-right: 2rem;
+  
+}
+
+ /**
+ * Time
+ */
+.time
+{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    color: #ffffff;
+    font-size: 6vh;
+    padding-top: 5px;
+    text-align: center;
+}
+
+ /**
+ * Esc
+ */
+ .esc
+ {
+     position: absolute;
+     right: 0;
+     bottom: 0;
+     width: 100%;
+     color: #ffffff;
+     font-size: 6vh;
+     padding-top: 5px;
+     text-align: center;
+ }
+ 
+
+
+.menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border-radius: 10px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .menu button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #00000081;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .menu button:hover {
+    background-color: #00000033;
+  }
+
+
+ /**
+ * Controls
+ */
+.controls
+{
+    position: absolute;
+    top: 1%;
+    width: 10%;
+}
+
+.controls .raw
+{
+    display: flex;
+    justify-content: center;
+}
+
+.controls .key
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin: 4px;
+    border: 2px solid #ffffff;
+    background: #03030300;
+    color: #ffffff;
+}
+
+.controls .key.large
+{
+    width: 84px;
+}
+
+.controls .key.active
+{
+    background: #0e0c0c31;
+}
+
+
+
+/**
+ * Leaderboard
+ */
+ .leaderboard {
+    margin-top: 20px;
+}
+
+.leaderboard ul {
+    list-style: none;
+    padding: 0;
+}
+
+.leaderboard li {
+    margin: 5px 0;
+}
+
+
+
+/* Laadscherm stijlen */
+.loading-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 1.5em;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .loading-bar {
+    width: 100%;
+    height: 10px;
+    background: #444;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .loading-bar-progress {
+    height: 100%;
+    background: #00ff00;
+    transition: width 0.3s;
+  }

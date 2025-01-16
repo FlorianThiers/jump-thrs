@@ -1,0 +1,7 @@
+opstart uitleg:
+-terminal
+-npm run dev    opstarten game
+-new terminal
+-node server.js     opstarten server
+
+injoy!
