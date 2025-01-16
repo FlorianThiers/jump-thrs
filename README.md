@@ -1,12 +1,20 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## How My Game Works
 
-Currently, two official plugins are available:
+Welcome to Jump-thrs, a parkour game where you need to jump from platform to platform to reach the end.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Controls
+- Use the **Mouse** to look around.
+- Use **Spacebar** to **Jump**.
+- You **can't** jump on a Hill.
+- Use **W, A, S, D** to **Move**.
+- Use **Esc** to open and get out of the **menu**.
+- Click on the **Ready** button to **Start**.
 
+## Credits
 
+Game and Music made by Florian Thiers
+
+Special thanks to Siebe De Gelas for committing
 
 
