@@ -181,6 +181,7 @@ const Interface = ({ setSelectedEnvironment }) => {
       const response = await axios.get('https://jump-thrs.vercel.app/api/leaderboard', {
         params: { gamemode: selectedGamemode } // Include the gamemode as a query parameter
       });
+      console.log(response.data); // Log the response data for debugging
       if (response.headers['content-type'].includes('application/json')) {
         setLeaderboard(response.data);
       } else {
@@ -190,6 +191,7 @@ const Interface = ({ setSelectedEnvironment }) => {
       console.error("Error fetching leaderboard:", error);
     }
   };
+  
 
   useEffect(() => {
     fetchLeaderboard();
