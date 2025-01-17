@@ -72,15 +72,14 @@
 // });
 
 import express from 'express';
-import fs from 'fs/promises'; // Gebruik fs.promises voor eenvoudiger werken met async/await
+import fs from 'fs/promises';
 import path from 'path';
 import cors from 'cors';
 
 const app = express();
-app.use(express.json()); // Gebruik moderne body-parser
-app.use(cors()); // Enable CORS
+app.use(express.json());
+app.use(cors());
 
-// Padberekening
 const leaderboardFilePath = path.resolve(process.cwd(), 'leaderboard.json');
 
 // GET leaderboard
@@ -117,10 +116,5 @@ app.post('/api/leaderboard', async (req, res) => {
   }
 });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
-
-// Export de express-app als een handler
+// Export handler for Vercel
 export default app;
