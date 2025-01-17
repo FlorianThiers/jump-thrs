@@ -149,53 +149,123 @@ const Interface = ({ setSelectedEnvironment }) => {
   // }
 
 
-  /*
-  *
-  * Leaderboard
-  *   
-  */
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const newEntry = {
-      name: playerName,
-      time: parseFloat(time.current.textContent) ,
-      fails: failCount,
-      gamemode: gamemode, // Include the gamemode
-    };
-    console.log("Submitting leaderboard entry:", newEntry);
+  // /*
+  // *
+  // * Leaderboard
+  // *   
+  // */
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   const newEntry = {
+  //     name: playerName,
+  //     time: parseFloat(time.current.textContent) ,
+  //     fails: failCount,
+  //     gamemode: gamemode, // Include the gamemode
+  //   };
+  //   console.log("Submitting leaderboard entry:", newEntry);
 
-    try {
-      await axios.post('https://jump-thrs.vercel.app/api/leaderboard', newEntry);
-      setShowFinishForm(false);
-      setPlayerName("");
-      fetchLeaderboard();
-      setShowLeaderboard(true); // Show leaderboard after submitting the score
-      restart(); // Reset the game after submitting the score
-    } catch (error) {
-      console.error("Error submitting leaderboard entry:", error);
-    }
-  };
+  //   try {
+  //     await axios.post('https://jump-thrs.vercel.app/api/leaderboard', newEntry);
+  //     setShowFinishForm(false);
+  //     setPlayerName("");
+  //     fetchLeaderboard();
+  //     setShowLeaderboard(true); // Show leaderboard after submitting the score
+  //     restart(); // Reset the game after submitting the score
+  //   } catch (error) {
+  //     console.error("Error submitting leaderboard entry:", error);
+  //   }
+  // };
 
-  const fetchLeaderboard = async () => {
-    try {
-      const response = await axios.get('https://jump-thrs.vercel.app/api/leaderboard', {
-        params: { gamemode: selectedGamemode } // Include the gamemode as a query parameter
-      });
-      console.log(response.data); // Log the response data for debugging
-      if (response.headers['content-type'].includes('application/json')) {
-        setLeaderboard(response.data);
-      } else {
-        console.error("Unexpected response format:", response.data);
-      }
-    } catch (error) {
-      console.error("Error fetching leaderboard:", error);
-    }
-  };
+  // const fetchLeaderboard = async () => {
+  //   try {
+  //     const response = await axios.get('https://jump-thrs.vercel.app/api/leaderboard', {
+  //       params: { gamemode: selectedGamemode } // Include the gamemode as a query parameter
+  //     });
+  //     console.log(response.data); // Log the response data for debugging
+  //     if (response.headers['content-type'].includes('application/json')) {
+  //       setLeaderboard(response.data);
+  //     } else {
+  //       console.error("Unexpected response format:", response.data);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching leaderboard:", error);
+  //   }
+  // };
   
 
-  useEffect(() => {
-    fetchLeaderboard();
-  }, [selectedGamemode]);
+  // useEffect(() => {
+  //   fetchLeaderboard();
+  // }, [selectedGamemode]);
+
+  /*
+* Leaderboard
+*   
+*/
+const handleSubmit = async (event) => {
+  event.preventDefault();
+
+  // Prepare new leaderboard entry data
+  const newEntry = {
+    name: playerName,
+    time: parseFloat(time.current.textContent), // Ensure time is a number
+    fails: failCount,
+    gamemode: gamemode, // Include the gamemode
+  };
+
+  console.log("Submitting leaderboard entry:", newEntry);
+
+  try {
+    // Post the new leaderboard entry
+    const response = await axios.post('https://jump-thrs.vercel.app/api/leaderboard', newEntry, {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+    
+    // Check if submission is successful
+    if (response.status === 200) {
+      console.log("Leaderboard entry submitted successfully:", response.data);
+      setShowFinishForm(false);
+      setPlayerName("");
+      fetchLeaderboard(); // Refresh leaderboard after submission
+      setShowLeaderboard(true); // Show leaderboard after submitting the score
+      restart(); // Reset the game after submitting the score
+    } else {
+      console.error("Failed to submit leaderboard entry:", response);
+    }
+  } catch (error) {
+    // Improved error handling for axios
+    console.error("Error submitting leaderboard entry:", error.response ? error.response.data : error.message);
+  }
+};
+
+const fetchLeaderboard = async () => {
+  try {
+    // Fetch leaderboard with selected gamemode filter
+    const response = await axios.get('https://jump-thrs.vercel.app/api/leaderboard', {
+      params: { gamemode: selectedGamemode } // Include the gamemode as a query parameter
+    });
+
+    console.log(response.data); // Log the response data for debugging
+
+    // Check for JSON response
+    if (response.headers['content-type'].includes('application/json')) {
+      setLeaderboard(response.data);
+    } else {
+      console.error("Unexpected response format:", response.data);
+    }
+  } catch (error) {
+    // Handle error fetching leaderboard
+    console.error("Error fetching leaderboard:", error.response ? error.response.data : error.message);
+  }
+};
+
+// Fetch leaderboard on gamemode change
+useEffect(() => {
+  fetchLeaderboard();
+}, [selectedGamemode]);
+
+
 
   /////////
   //MUSIC//
