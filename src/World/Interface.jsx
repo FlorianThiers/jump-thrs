@@ -165,7 +165,7 @@ const Interface = ({ setSelectedEnvironment }) => {
     console.log("Submitting leaderboard entry:", newEntry);
 
     try {
-      await axios.post('/api/leaderboard', newEntry);
+      await axios.post('https://jump-thrs.vercel.app/api/leaderboard', newEntry);
       setShowFinishForm(false);
       setPlayerName("");
       fetchLeaderboard();
@@ -178,7 +178,7 @@ const Interface = ({ setSelectedEnvironment }) => {
 
   const fetchLeaderboard = async () => {
     try {
-      const response = await axios.get('/api/leaderboard', {
+      const response = await axios.get('https://jump-thrs.vercel.app/api/leaderboard', {
         params: { gamemode: selectedGamemode } // Include the gamemode as a query parameter
       });
       if (response.headers['content-type'].includes('application/json')) {
