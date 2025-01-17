@@ -117,5 +117,10 @@ app.post('/api/leaderboard', async (req, res) => {
   }
 });
 
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
+
 // Export de express-app als een handler
 export default app;
