@@ -10,7 +10,7 @@ export default create(
       endTime: 0,
       fails: 0,
       laugh : new Audio('/laugh.mp3'),
-      checkpoint: [0, 1, 0], // Voeg checkpoint toe
+      checkpoint: [0, 100, 0], // Voeg checkpoint toe
       gamemode: "normal", // Voeg gamemode toe
       environment: "autumn_field_puresky_4k.hdr",
       audio: null, // Voeg audio state toe
